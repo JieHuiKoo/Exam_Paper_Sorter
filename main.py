@@ -11,7 +11,7 @@ def obtain_pdfs():
     current_directory = os.getcwd()
 
     # location of all exam papers
-    data_folder_directory = current_directory + "\Data"
+    data_folder_directory = current_directory + "\Data1"
     
     # Examine the folder and make a data structure
     data_folder = os.walk(data_folder_directory)
@@ -75,8 +75,8 @@ if not os.path.exists(output_directory):
 
 progression_count = 1
 for exam_paper in data:
+    print("Processing " + str(progression_count) + " of " + str(len(data)+1) + " || Year: " + exam_paper[1] + " || " + exam_paper[2])
     progression_count = progression_count + 1
-    print("Processing " + str(progression_count) + " of " + str(len(data)+1))
     try:
         #print("Opening Existing")
         # Try to open the destination file. 
@@ -91,7 +91,7 @@ for exam_paper in data:
         merger = pdfFM()
         # Merge it
         merger.append(exam_file)
-        merger.append(exam_file_to_merge, pages=(1,num_of_pages))
+        merger.append(exam_file_to_merge, pages=(1,num_of_pages), bookmark=None)
 
     # If not created, open the current file
     except IOError:
@@ -102,8 +102,15 @@ for exam_paper in data:
 
         # Merge the exam_file
         merger.append(exam_file)
+    
+    except:
+        print("\n\n")
+        print("Error" + "|| Year: " + exam_paper[1] + " || " + exam_paper[2])
+        print("Try removing all bookmarks, embedded files and thumbnails.")
+        print("You may use this tool. https://avepdf.com/en/remove-pdf-content")
+        print("\n\n")
 
-    # Export it to output
+        # Export it to output
     merger.write(output_directory + '\\' + str(exam_paper[2]))
     merger.close()
 
