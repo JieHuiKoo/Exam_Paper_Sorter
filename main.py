@@ -11,7 +11,7 @@ def obtain_pdfs():
     current_directory = os.getcwd()
 
     # location of all exam papers
-    data_folder_directory = current_directory + "\Data1"
+    data_folder_directory = current_directory + "\Data"
     
     # Examine the folder and make a data structure
     data_folder = os.walk(data_folder_directory)
@@ -91,8 +91,8 @@ for exam_paper in data:
         merger = pdfFM()
         # Merge it
         merger.append(exam_file)
-        merger.append(exam_file_to_merge, pages=(1,num_of_pages), bookmark=None)
-
+        merger.append(exam_file_to_merge)
+        
     # If not created, open the current file
     except IOError:
         #print("Creating New")
@@ -110,7 +110,7 @@ for exam_paper in data:
         print("You may use this tool. https://avepdf.com/en/remove-pdf-content")
         print("\n\n")
 
-        # Export it to output
+    # Export it to output
     merger.write(output_directory + '\\' + str(exam_paper[2]))
     merger.close()
 
