@@ -11,7 +11,7 @@ def obtain_pdfs():
     current_directory = os.getcwd()
 
     # location of all exam papers
-    data_folder_directory = current_directory + "\Data1"
+    data_folder_directory = current_directory + "\Data"
     
     # Examine the folder and make a data structure
     data_folder = os.walk(data_folder_directory)
@@ -51,11 +51,11 @@ def obtain_pdfs():
                     exam_paper_name = exam_paper_name.replace(unwanted_word, "")
 
             # convert all exam_paper_name to lowercase
-            exam_paper_name = exam_paper_name.lower()
+            exam_paper_name = exam_paper_name.lower() + ".pdf"
             
             # Append the data into our own data structure [directory, year, cleaned exam paper name, original exam paper name]
             exam_papers_collated.append([exam_paper_directory, year, exam_paper_name.lower(), original_exam_paper_name])
-            print("Year: " + str(year) + " || " + "Paper: " + str(exam_paper_name).ljust(70) + " || " + str("Directory: "+ exam_paper_directory))
+            #print("Year: " + str(year) + " || " + "Paper: " + str(exam_paper_name).ljust(70) + " || " + str("Directory: "+ exam_paper_directory))
         #print("========")
 
     # Sort our data structure by file name => [file directory, year, file name, original exam paper name]
@@ -118,6 +118,6 @@ def export_pdf(data):
 data = obtain_pdfs()
 
 # Merge and export the pdfs
-#export_pdf(data)
+export_pdf(data)
 
 print("Bubba <3 Wubba")
