@@ -107,4 +107,4 @@ for exam_paper in data:
     merger.write(output_directory + '\\' + str(exam_paper[2]))
     merger.close()
 
-    print("Bubba <3 Wubba")
+print("Bubba <3 Wubba")
