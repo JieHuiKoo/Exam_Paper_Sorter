@@ -1,11 +1,6 @@
 from PyPDF2 import PdfFileReader as pdfFR, PdfFileWriter as pdfFW, pdf, PdfFileMerger as pdfFM # For dealing with pdf
 import os # For dealing with file directory
 
-def merge_pdf(paths, output):
-    pass
-
-print(os.getcwd())
-
 def obtain_pdfs():
     # Obtain current directory main.py program is in
     current_directory = os.getcwd()
