@@ -33,6 +33,9 @@ def obtain_pdfs():
 
         # For every paper in each year_folder
         for exam_paper_name in year_folder[2]:
+            if ".pdf" not in exam_paper_name:
+                continue
+
             exam_paper_directory = str(folder_directory)+"\\"+str(exam_paper_name)
             
             # Store the original exam paper name for future reference
