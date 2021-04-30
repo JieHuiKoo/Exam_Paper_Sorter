@@ -10,6 +10,5 @@ Sorts Durham University's collection of law exam papers by module instead of yea
 1. Delete the folder "output" if it exists.
 1. Program will output pdf files in a folder named "output".
 
-**NOTE**
-
+**NOTE**\n
 PDF file names (Module name of pdf) must be the **exact** same for all PDFs of the same module.
