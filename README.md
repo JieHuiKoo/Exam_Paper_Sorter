@@ -6,5 +6,5 @@ Sorts Durham University's collection of law exam papers by module instead of yea
 1. pip install pypdf2
 1. Please put a folder called "Data" in the same folder as where main.py is located. "Data" must have sub-folders containing exam papers.
 1. "Data" MUST have sub folders named in the following format:
-* "XXX 2010" where XXX can appear an arbitrary number of times.
+   * "XXX 2010" where XXX can appear an arbitrary number of times.
 5) 
